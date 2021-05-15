@@ -1,5 +1,7 @@
 @extends('layouts.Font.App')
 @section('content')
+
+
   <section class="ai-banner d-none d-sm-block d-sm-none d-md-block">
       <div class="container">
           <div class="row ai-row align-items-center">
@@ -28,6 +30,9 @@
           </div>
       </div>
   </section>
+
+
+
   <!--Mobile Banner-->
   <section class="ai-home-mobile-banner d-block d-sm-block d-md-none">
       <div class="container-fluid p-5">
@@ -51,6 +56,8 @@
       </div>
   </section>
   <!--Mobile Banner End-->
+
+
   <section class="ai-icon-box d-none d-sm-block d-sm-none d-md-block">
       <div class="container-fluid text-light">
           <div class="row pt-4 pb-4">

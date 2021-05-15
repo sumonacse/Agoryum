@@ -1,17 +1,26 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.Back.App')
+@section('title')
+  Dashboard
+@endsection
+@section('content')
+  <div class="layout-px-spacing">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+    @include('Dashboard.alerts')
+      <div class="row layout-top-spacing">
+
+          <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+              <div class="widget widget-content-area br-4">
+                  <div class="widget-one">
+
+                    <h3>Welcome to dashbaord</h3>
+
+                  </div>
+              </div>
+          </div>
+
+
+
+      </div>
+
+  </div>
+@endsection
