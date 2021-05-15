@@ -8,8 +8,8 @@
       <div class="statbox widget box box-shadow">
           <div class="widget-header">
               <div class="row">
-                  <div class="col-xl-12 col-md-12 col-sm-12 col-12 mt-2 ml-2">
-                      <h4>Banner Section</h4>
+                  <div class="col-xl-12 col-md-12 col-sm-12 mt-2">
+                      <h4>Banner Section</h4> <a href="#" type="button" class="btn btn-danger ">Disable</a>
                   </div>
               </div>
           </div>
