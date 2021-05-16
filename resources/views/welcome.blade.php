@@ -171,71 +171,24 @@
               <h2 class="ai-heading ai-mob-heading mt-3 mb-5"><span class="ai-heading-d">Our </span>Services</h2>
           </div>
           <div class="row ai-slick">
+            @forelse ($Serve as $value)
+
               <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-1 mx-3">
+                  <div class="ai-card-slider ai-card-slider-bg-1 mx-3" style="background:url(../uploads/{{$value->service_banner}})">
                       <div class="ai-box-height"></div>
                       <div class="card-body p-4">
-                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>UI/UX</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">Engage and include an established design team focused on improving</p>
+                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>{{ $value->service_title }}</h5>
+                          <p class="card-text ai-card-text text-light ai-poppins">{{ \Illuminate\Support\Str::limit($value->service_desc, 150, $end='...') }}</p>
                       </div>
                       <div class="card-body ai-card-btn-body p-4">
-                          <a href="Experience-Design.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
+                          <a href="{!! route('ServiceView',$value->id) !!}" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
                           <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                       </div>
                   </div>
               </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-2 mx-3">
-                      <div class="ai-box-height"></div>
-                      <div class="card-body p-4">
-                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium">Web/Application Development</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">Understanding the value listeners have for the radio station serves to guide the direction</p>
-                      </div>
-                      <div class="card-body ai-card-btn-body p-4">
-                          <a href="Core-Engineering.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
-                          <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-3 mx-3">
-                      <div class="ai-box-height"></div>
-                      <div class="card-body p-4">
-                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>Cyber Security</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">Dentify, respond and resolve cyber threats quickly. Addressing Cyber & Data</p>
-                      </div>
-                      <div class="card-body ai-card-btn-body p-4">
-                          <a href="Security.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
-                          <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-4 mx-3">
-                      <div class="ai-box-height"></div>
-                      <div class="card-body p-4">
-                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium">DevOps & Cloud Services</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">Get more from your devOps and cloud initatives with end-to-end automation</p>
-                      </div>
-                      <div class="card-body ai-card-btn-body p-4">
-                          <a href="DevOps&CloudServices.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
-                          <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-5 mx-3">
-                      <div class="ai-box-height"></div>
-                      <div class="card-body p-4">
-                          <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>IoT</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">Harness the power of loT to reduce costs, drive revenue and streamline</p>
-                      </div>
-                      <div class="card-body ai-card-btn-body p-4">
-                          <a href="Internet-of-Things-(IoT).html" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
-                          <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
+            @empty
+              <p>No Service available</p>
+            @endforelse
           </div>
       </div>
   </section>

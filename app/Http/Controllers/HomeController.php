@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
       $banner = DB::table('banner_sections')->where('id', 1)->first();
       $cases = DB::table('casestudies')->get();
-      return view('welcome', compact('banner','cases'));
+      $Serve = DB::table('services')->get();
+      return view('welcome', compact('banner','cases','Serve'));
     }
 }

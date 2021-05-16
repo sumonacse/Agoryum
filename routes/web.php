@@ -45,6 +45,10 @@ Route::get('/case-studies-delete/{id}', [CasestudiesController::class, 'deleteCa
 
 // Services Section
 Route::get('/our-Services', [ServiceController::class, 'index'])->name('ServiceIndex');
+Route::get('/our-Services-all', [ServiceController::class, 'allServices'])->name('allServices');
+Route::get('/our-Services-delete/{id}', [ServiceController::class, 'ServiceDelete'])->name('ServiceDelete');
+Route::get('/our-Services-view/{id}', [ServiceController::class, 'ServiceView'])->name('ServiceView');
+Route::post('/our-Services-post', [ServiceController::class, 'ServicePost'])->name('ServicePost');
 
 // Services Section
 

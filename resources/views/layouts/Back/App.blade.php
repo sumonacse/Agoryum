@@ -16,6 +16,7 @@
     <link href="{!! asset('Backend') !!}/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{!! asset('Backend') !!}/plugins/table/datatable/datatables.css">
     <link rel="stylesheet" type="text/css" href="{!! asset('Backend') !!}/plugins/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" href="{!! asset('Backend') !!}/plugins/editors/markdown/simplemde.min.css">
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -151,6 +152,9 @@
                 "pageLength": 7
             });
         </script>
+        <script src="{!! asset('Backend') !!}/plugins/editors/markdown/simplemde.min.js"></script>
+        <script src="{!! asset('Backend') !!}/plugins/editors/markdown/custom-markdown.js"></script>
+
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>

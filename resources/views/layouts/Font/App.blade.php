@@ -10,12 +10,12 @@
         <meta name="description" content="{{ $siteSettings->metadescription }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-        <link href="assets/css/slick.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/slick-theme.css" rel="stylesheet" type="text/css"/>
-        <script src="assets/js/ai-commen.js" type="text/javascript"></script>
+        <script src="{!! asset('assets') !!}/js/jquery.min.js" type="text/javascript"></script>
+        <link href="{!! asset('assets') !!}/css/slick.css" rel="stylesheet" type="text/css"/>
+        <link href="{!! asset('assets') !!}/css/slick-theme.css" rel="stylesheet" type="text/css"/>
+        <script src="{!! asset('assets') !!}/js/ai-commen.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="{!! asset('assets') !!}/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-sm-6 text-center">
                         <div class=" card-footer mb-3 pt-5" >
-                            <div class="card-headers bg-transparent"><img src="assets/images/logo.png"></div>
+                            <div class="card-headers bg-transparent"><img src="../uploads/{{ $siteSettings->logo }}"></div>
                             <div class="card-body">
                                 <p class="card-text pt-3 pb-3 ai-poppins">At our core is a philosophy of service to our clients with the highest level of honesty and integrity 100%... all the time.</p>
                                 <div class="ai-banner-social-footer">
