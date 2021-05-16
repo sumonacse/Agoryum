@@ -37,12 +37,15 @@
                                 <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdown" role="button" aria-expanded="false">
                                     Services
                                 </a>
+                                @php
+                                  $serve = DB::table('services')->get();
+                                @endphp
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="Core-Engineering.html">Web & App Development</a></li>
-                                    <li><a class="dropdown-item" href="Experience-Design.html">Experience Design UI/UX</a></li>
-                                    <li><a class="dropdown-item" href="Security.html">Cyber Security</a></li>
-                                    <li><a class="dropdown-item" href="Internet-of-Things-(IoT).html">Internet-of-Things (IoT)</a></li>
-                                    <li><a class="dropdown-item" href="DevOps&CloudServices.html">DevOps & Cloud Services</a></li>
+                                  @forelse ($serve as $value)
+                                    <li><a class="dropdown-item" href="{!! route('ServiceView',$value->id) !!}">{{ $value->service_title }}</a></li>
+                                  @empty
+                                    <li><a class="dropdown-item" href="Core-Engineering.html">No service</a></li>
+                                  @endforelse
                                 </ul>
                             </li>
                             <li class="nav-item">

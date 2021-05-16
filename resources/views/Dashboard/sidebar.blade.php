@@ -22,7 +22,7 @@
           <li class="menu">
                 <a href="#starter-kit" data-active="true" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
-                        
+
                         <span>Sections Settings</span>
                     </div>
                     <div>
@@ -38,6 +38,15 @@
                     </li>
                     <li>
                         <a href="{!! route('ServiceIndex') !!}">Service Section</a>
+                    </li>
+                    <li>
+                        <a href="{!! route('ClientIndex') !!}">Our Clients</a>
+                    </li>
+                    <li>
+                        <a href="{!! route('techIndex') !!}">Our Technologies</a>
+                    </li>
+                    <li>
+                        <a href="{!! route('videoIndex') !!}">Video Section</a>
                     </li>
                 </ul>
             </li>

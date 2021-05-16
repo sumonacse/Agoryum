@@ -199,32 +199,11 @@
                   <h5 class="text-uppercase ai-client-sub-heading">clients</h5>
                   <h2 class="text-capitalize ai-cleint-heading ai-rajdhani-medium"><span class="ai-heading-d">Our</span> clients</h2>
                   <div class="row text-center">
+                    @foreach ($client as $value)
                       <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-1.png" alt=""/>
+                          <img src="../uploads/{{ $value->company_logo }}" alt=""/>
                       </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-2.png" alt=""/>
-                      </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-3.png" alt=""/>
-                      </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-4.png" alt=""/>
-                      </div>
-                  </div>
-                  <div class="row pb-5 text-center">
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-5.png" alt=""/>
-                      </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-6.png" alt=""/>
-                      </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-7.png" alt=""/>
-                      </div>
-                      <div class="col-6 col-sm-6 col-md-6 col-lg-3 p-3">
-                          <img src="assets/images/clients-8.png" alt=""/>
-                      </div>
+                    @endforeach
                   </div>
               </div>
               <div class="col-sm-6">
@@ -235,63 +214,28 @@
                               <h2 class="ai-testimonial-heading ai-bold pb-3">What Client's Say?</h2>
                               <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                                   <div class="carousel-indicators ai-carousel-indicators">
-                                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active ai-slide-label link-light bg-light" aria-current="true" aria-label="Slide 1"></button>
-                                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="ai-slide-label link-light bg-light" aria-label="Slide 2"></button>
-                                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="ai-slide-label link-light bg-light" aria-label="Slide 3"></button>
-                                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" class="ai-slide-label link-light bg-light" aria-label="Slide 4"></button>
-                                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" class="ai-slide-label link-light bg-light" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active ai-slide-label link-light bg-light" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="ai-slide-label link-light bg-light" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="ai-slide-label link-light bg-light" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" class="ai-slide-label link-light bg-light" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" class="ai-slide-label link-light bg-light" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" class="ai-slide-label link-light bg-light" aria-label="Slide 6"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" class="ai-slide-label link-light bg-light" aria-label="Slide 7"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" class="ai-slide-label link-light bg-light" aria-label="Slide 8"></button>
                                   </div>
                                   <div class="carousel-inner">
+                                    @foreach ($client as $value)
                                       <div class="carousel-item active">
                                           <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">From start to finish, our project was handled above our expectations. The Team at Agoryum understood our goals, walked us through the process and showed us where we could go. For us, there has been no better clarity and focus provided by any development team.</p>
+                                              <p class="ai-testimonials-content ai-poppins-light">{{ $value->client_review }}</p>
                                               <hr>
                                               <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="assets/images/client-profile-1.png" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">Cliff H.</p>
+                                                  <img class="ai-object-img" src="../uploads/{{ $value->clients_photo }}" alt="" height="100%" width="70px"/>
+                                                  <p class="d-inline-block client-name">{{ $value->client_name }}</p>
                                               </div>
                                           </div>
                                       </div>
-                                      <div class="carousel-item">
-                                          <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">Working hand in hand with Agoryum, we were able to move our prototype software from initial idea to operational tool. Guided UI/UX workshops, Development Models and Prospective pathways, Agoryum cooperated with our teams to meet these necessities. With clear understanding of how business works, Agoryum guided our teams to a strong future.</p>
-                                              <hr>
-                                              <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="assets/images/client-profile-2.png" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">Susan H.</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="carousel-item">
-                                          <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">With strict deadlines and budget constraints, Agoryum brought our product to market well before the deadline. Without compromising on quality, the Team at Agoryum masterfully moved with us along the development cycle into implementation and finally into delivery. For us, there is no better understanding of customer satisfaction executed by any other partner that we have worked with.</p>
-                                              <hr>
-                                              <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="assets/images/client-profile-3.png" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">Paulette W.</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="carousel-item">
-                                          <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">With the need for fast development work, Agoryum was able to directly lead our team for a shift from our Amazon Web Services Platform over to the Google Cloud Platform. We needed a complete lift and shift of all our assets and when we thought it impossible, Agoryum clearly outlined how we could get it done. With the fast shift our company has been positioned as we needed and can continue to grow.</p>
-                                              <hr>
-                                              <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="assets/images/client-profile-4.png" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">Mike C.</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="carousel-item">
-                                          <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">With our code in an outdated state, we needed a development team that would be able to spot inconsistencies in our code and optimal points for efficiencies to be enacted. WIth those clear stipulations, Agoryum was able to go through our Platform which was built on Angular, and clearly outline the path forward. Working in tandem with Agoryum's development teams, we were able to successfully find the holes in our code and effectively rebuild our Platform to the latest version. Agoryum got the job done.</p>
-                                              <hr>
-                                              <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="assets/images/client-profile-5.png" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">Ryan S.</p>
-                                              </div>
-                                          </div>
-                                      </div>
+                                    @endforeach
                                   </div>
                               </div>
                           </div>
@@ -310,39 +254,11 @@
               <h2 class="ai-heading mt-3 mb-5 ai-mob-heading"><span class="ai-heading-d">Our </span>Technologies</h2>
           </div>
           <div class="row ai-slick-brand">
+            @foreach ($technologies as $value)
               <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-1.png" alt=""/>
+                  <img src="../uploads/{{ $value->tech_logo }}" title="{{ $value->tech_name }}" alt=""/>
               </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-2.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-3.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-4.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-5.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-6.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-7.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-8.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-9.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-10.png" alt=""/>
-              </div>
-              <div class="col-sm-4 ai-slick-slide">
-                  <img src="assets/images/brand-11.png" alt=""/>
-              </div>
+            @endforeach
           </div>
       </div>
   </section>
