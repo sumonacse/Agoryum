@@ -30,8 +30,14 @@
                     </div>
                 </a>
                 <ul class="submenu list-unstyled collapse show" id="starter-kit" data-parent="#accordionExample" style="">
-                    <li class="active">
+                    <li>
                         <a href="{!! route('bannersectionsettingsindex') !!}"> Banner Sections </a>
+                    </li>
+                    <li>
+                        <a href="{!! route('CasestudiesIndex') !!}">Case Studies</a>
+                    </li>
+                    <li>
+                        <a href="{!! route('ServiceIndex') !!}">Service Section</a>
                     </li>
                 </ul>
             </li>

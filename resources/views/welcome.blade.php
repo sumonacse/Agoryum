@@ -1,24 +1,25 @@
 @extends('layouts.Font.App')
 @section('content')
 
-
+@if (!empty($banner))
+@if ($banner->status == 1)
   <section class="ai-banner d-none d-sm-block d-sm-none d-md-block">
       <div class="container">
           <div class="row ai-row align-items-center">
               <div class="ai-banner-content">
                   <h1 class="ml4 text-light ai-bold banner-heading ist">
-                      <span class="ai-bold letters letters-1">Technology</span>
-                      <span class="ai-bold letters letters-2">Business </span>
-                      <span class="ai-bold letters letters-3">Solutions </span>
+                      <span class="ai-bold letters letters-1">{{ $banner->bannerSectionOne }}</span>
+                      <span class="ai-bold letters letters-2">{{ $banner->bannerSectionTwo }} </span>
+                      <span class="ai-bold letters letters-3">{{ $banner->bannerSectionThree }} </span>
                   </h1>
-                  <p class="text-light banner-text">to your Routine & Complex Business Challenges</p>
+                  <p class="text-light banner-text">{{ $banner->shortDesc }}</p>
                   <a href="contact.html" class="ai-btn ai-banner-btn btn btn-danger mt-4 ai-rajdhani-medium">Get Started</a>
               </div>
               <div class="ai-banner-social">
                   <ul class="list-group list-group-horizontal list-unstyled">
-                      <li><a href="https://www.linkedin.com/company/agoryum-ventures/" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-linkedin text-light"></i></a></li>
-                      <li><a href="https://www.facebook.com/Agoryum-Ventures-107226874202571/" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="https://twitter.com/agoryumv" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-twitter text-light"></i></a></li>
+                      <li><a href="{{ $banner->linkedin_link }}" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-linkedin text-light"></i></a></li>
+                      <li><a href="{{ $banner->facebook_link }}" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="{{ $banner->twitter_link }}" target="_blank" class="border border-2 rounded-circle text-light ai-social-icon"><i class="fa fa-twitter text-light"></i></a></li>
                   </ul>
               </div>
               <div class="ai-banner-bottom-icon text-center">
@@ -39,15 +40,15 @@
           <div class="row ai-mobile-row align-items-center">
               <div class="p-0 ps-3">
                   <h1 class="ml4 ai-rajdhani-medium ai-mobile-banner-heading mb-4">
-                      <span class="ai-rajdhani-medium letters letters-1">Technology</span>
-                      <span class="ai-rajdhani-medium letters letters-2">Business </span>
-                      <span class="ai-rajdhani-medium letters letters-3">Solutions </span>
+                      <span class="ai-rajdhani-medium letters letters-1">{{ $banner->bannerSectionOne }}</span>
+                      <span class="ai-rajdhani-medium letters letters-2">{{ $banner->bannerSectionTwo }} </span>
+                      <span class="ai-rajdhani-medium letters letters-3">{{ $banner->bannerSectionThree }} </span>
                   </h1>
-                  <p class="ai-rajdhani-medium m-0 pb-2">Web and Application <strong>Development</strong></p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">UI/UX <strong>Experienced design</strong></p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">Cyber <strong>Security</strong></p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">Internet of <strong>Things(IoT)</strong></p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">DevOps & <strong>Cloud Migration</strong></p>
+                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMOne }}</p>
+                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMTwo }}</p>
+                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMThree }}</p>
+                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFour }}</p>
+                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFive }}</p>
                   <div class="d-flex pt-4">
                       <a href="contact.html" class="rounded-0 ai-btn ai-mobile-btn btn btn-danger ai-rajdhani-medium">Let's Talk</a>
                   </div>
@@ -64,41 +65,45 @@
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
                   <img class="me-3" src="assets/images/Group 162.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Experience-Design.html" class="text-light text-decoration-none">Experience Design UI/UX</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="Experience-Design.html" class="text-light text-decoration-none">{{ $banner->titleMOne }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Experience-Design.html" class="text-light text-decoration-none ai-poppins">Engage and include an established design team focused on improving a user centered design process. Collaborative sessions, workshops, and mentoring to achieve enhanced designs, more human user experiences and better interface experiences for your websites and platforms.</a></p>-->
                   </div>
               </div>
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
                   <img class="me-3" src="assets/images/Group 163.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Internet-of-Things-(IoT).html" class="text-light text-decoration-none">Internet-of-Things-(IoT)</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="Internet-of-Things-(IoT).html" class="text-light text-decoration-none">{{ $banner->titleMTwo }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Internet-of-Things-(IoT).html" class="text-light text-decoration-none ai-poppins">Harness the power of IoT to reduce costs, drive revenue and streamline your operations. Boost efficiency and streamline capital expenditures with Agile Methods. Securely connect devices, gather data, and take intelligent actions based on increased insights and improved analytics.</a></p>-->
                   </div>
               </div>
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
                   <img class="me-3" src="assets/images/Group 164.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Core-Engineering.html" class="text-light text-decoration-none">Web & App Development</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="Core-Engineering.html" class="text-light text-decoration-none">{{ $banner->titleMThree }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Core-Engineering.html" class="text-light text-decoration-none ai-poppins">Software development life cycle (SDLC) principles applied. Our development teams, building applications (iOS and Android), websites and platform integrations</a></p>-->
                   </div>
               </div>
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
                   <img class="me-3" src="assets/images/Group 165.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="DevOps&CloudServices.html" class="text-light text-decoration-none">DevOps & Cloud Services</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="DevOps&CloudServices.html" class="text-light text-decoration-none">{{ $banner->titleMFour }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="DevOps&CloudServices.html" class="text-light text-decoration-none ai-poppins">Get more from your DevOps and cloud initiatives with end-to-end automation, speed innovation and increased digital agility. Automate your software development with our DevOps experts.</a></p>-->
                   </div>
               </div>
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
                   <img class="me-3" src="assets/images/Group 166.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Security.html" class="text-light text-decoration-none">Cyber Security</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="Security.html" class="text-light text-decoration-none">{{ $banner->titleMFive }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Security.html" class="text-light text-decoration-none ai-poppins">Identify, respond and resolve cyber threats quickly. Addressing Cyber & Data Security to protect your business allowing it to grow confidently. IT Support Experts, 24/7 Support Services: IT Support, Managed Services and Network Assessment.</a></p>-->
                   </div>
               </div>
           </div>
       </div>
   </section>
+@endif
+@endif
+
+@if (!empty($cases))
   <section id="case-studies" class="ai-pt ai-pb ai-card-section d-none d-sm-block d-sm-none d-md-block">
       <div class="container">
           <div class="row">
@@ -108,57 +113,24 @@
               <h2 class="ai-heading mt-3 mb-5"><span class="ai-heading-d">Case</span> Studies</h2>
           </div>
           <div class="row row-cols-1 row-cols-md-4 g-4">
+            @foreach ($cases as $case)
               <div class="col pe-0">
                   <div class="card h-100 ai-card">
-                      <a href="assets/images/Case Study Cloud Migration.pdf" target="_blank"><img src="assets/images/case-1.jpg" class="card-img-top" alt="..."></a>
+                      <a href="./uploads/{{$case->case_file}}" target="_blank"><img src="../uploads/{{ $case->case_thumbnal}}" class="card-img-top" alt="..."></a>
                       <div class="card-body text-center">
-                          <h5 class="card-title ai-card-title">Cloud <span>Migration</span></h5>
+                          <h5 class="card-title ai-card-title">{{$case->case_title}}</h5>
                       </div>
                       <div class="card-body ai-card-btn-body">
-                          <a href="assets/images/Case Study Cloud Migration.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
+                          <a href="./uploads/{{$case->case_file}}" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
                           <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                       </div>
                   </div>
               </div>
-              <div class="col pe-0">
-                  <div class="card h-100 ai-card">
-                      <a href="assets/images/Case Study Website Development.pdf" target="_blank">  <img src="assets/images/case-2.jpg" class="card-img-top" alt="..."></a>
-                      <div class="card-body text-center">
-                          <h5 class="card-title ai-card-title">Website <span>Development</span></h5>
-                      </div>
-                      <div class="card-body ai-card-btn-body">
-                          <a href="assets/images/Case Study Website Development.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                          <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col pe-0">
-                  <div class="card h-100 ai-card">
-                      <a href="assets/images/Case Study Application Code Review.pdf" target="_blank">   <img src="assets/images/case-3.jpg" class="card-img-top" alt="..."></a>
-                      <div class="card-body text-center">
-                          <h5 class="card-title ai-card-title">Application <span>Code Review</span></h5>
-                      </div>
-                      <div class="card-body ai-card-btn-body">
-                          <a href="assets/images/Case Study Application Code Review.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                          <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col pe-0">
-                  <div class="card h-100 ai-card">
-                      <a href="assets/images/Case Study Application Development.pdf" target="_blank"> <img src="assets/images/case-4.jpg" class="card-img-top" alt="..."></a>
-                      <div class="card-body text-center">
-                          <h5 class="card-title ai-card-title">Application <span>Development</span></h5>
-                      </div>
-                      <div class="card-body ai-card-btn-body">
-                          <a href="assets/images/Case Study Application Development.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                          <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                      </div>
-                  </div>
-              </div>
+            @endforeach
           </div>
       </div>
   </section>
+
   <!--Mobile Case Studies-->
   <section id="case-studies" class="ai-pt ai-pb case-studies-mobile ai-card-section d-block d-sm-block d-md-none">
       <div class="container ai-slider-container">
@@ -170,59 +142,26 @@
           </div>
           <div>
               <div class="row row-cols-1 row-cols-md-4 g-4 ai-slick ai-case-studies-slider">
+                @foreach ($cases as $case)
                   <div class="col pe-0">
                       <div class="card ai-card">
-                          <a href="assets/images/Case Study Cloud Migration.pdf" target="_blank"><img src="assets/images/case-1.jpg" class="card-img-top" alt="..."></a>
+                          <a href="./uploads/{{$case->case_file}}" target="_blank"><img src="../uploads/{{ $case->case_thumbnal}}" class="card-img-top" alt="..."></a>
                           <div class="card-body text-center">
-                              <h5 class="card-title ai-card-title">Cloud <span>Migration</span></h5>
+                              <h5 class="card-title ai-card-title">{{$case->case_title}}</h5>
                           </div>
                           <div class="card-body ai-card-btn-body">
-                              <a href="assets/images/Case Study Cloud Migration.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
+                              <a href="./uploads/{{$case->case_file}}" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
                               <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                           </div>
                       </div>
                   </div>
-                  <div class="col pe-0">
-                      <div class="card ai-card">
-                          <a href="assets/images/Case Study Website Development.pdf" target="_blank">  <img src="assets/images/case-2.jpg" class="card-img-top" alt="..."></a>
-                          <div class="card-body text-center">
-                              <h5 class="card-title ai-card-title">Website <span>Development</span></h5>
-                          </div>
-                          <div class="card-body ai-card-btn-body">
-                              <a href="assets/images/Case Study Website Development.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                              <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col pe-0">
-                      <div class="card ai-card">
-                          <a href="assets/images/Case Study Application Code Review.pdf" target="_blank">   <img src="assets/images/case-3.jpg" class="card-img-top" alt="..."></a>
-                          <div class="card-body text-center">
-                              <h5 class="card-title ai-card-title">Application <span>Code Review</span></h5>
-                          </div>
-                          <div class="card-body ai-card-btn-body">
-                              <a href="assets/images/Case Study Application Code Review.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                              <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col pe-0">
-                      <div class="card ai-card">
-                          <a href="assets/images/Case Study Application Development.pdf" target="_blank"> <img src="assets/images/case-4.jpg" class="card-img-top" alt="..."></a>
-                          <div class="card-body text-center">
-                              <h5 class="card-title ai-card-title">Application <span>Development</span></h5>
-                          </div>
-                          <div class="card-body ai-card-btn-body">
-                              <a href="assets/images/Case Study Application Development.pdf" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                              <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
-                          </div>
-                      </div>
-                  </div>
+                @endforeach
               </div>
           </div>
       </div>
   </section>
   <!--Mobile Case Studies End-->
+  @endif
   <section class="ai-service-section ai-pt ai-pb">
       <div class="container ai-slider-container">
           <div class="row ai-text-center">

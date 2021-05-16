@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitesettingController;
 use App\Http\Controllers\BannerSectionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CasestudiesController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +18,8 @@ use App\Http\Controllers\BannerSectionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 
 // Site settings
@@ -25,18 +27,26 @@ Route::get('/site-settings', [SitesettingController::class, 'index'])->name('sit
 Route::post('/site-settings-post', [SitesettingController::class, 'siteSettingsSubmit'])->name('siteSettingsSubmit');
 // Site settings
 
-// Section Settings
-Route::get('/banner-section-settings', [BannerSectionController::class, 'index'])->name('bannersectionsettingsindex');
-Route::post('/banner-section-settings-post', [BannerSectionController::class, 'BannerSection'])->name('BannerSectionPost');
-
-// Section Settings
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+// Section Settings
+Route::get('/banner-section-settings', [BannerSectionController::class, 'index'])->name('bannersectionsettingsindex');
+Route::get('/banner-disable', [BannerSectionController::class, 'disable_banner'])->name('disable_banner');
+Route::get('/banner-enable', [BannerSectionController::class, 'enable_banner'])->name('enable_banner');
+Route::post('/banner-section-settings-post', [BannerSectionController::class, 'BannerSection'])->name('BannerSectionPost');
 
+// Section Settings
 
+Route::get('/case-studies', [CasestudiesController::class, 'CasestudiesIndex'])->name('CasestudiesIndex');
+Route::post('/case-studies-post', [CasestudiesController::class, 'CasestudiesPost'])->name('CasestudiesPost');
+Route::get('/case-studies-delete/{id}', [CasestudiesController::class, 'deleteCase'])->name('deleteCase');
 
+// Services Section
+Route::get('/our-Services', [ServiceController::class, 'index'])->name('ServiceIndex');
+
+// Services Section
 
 Route::get('/logout', [FrontEndController::class, function(){
     Auth::logout();

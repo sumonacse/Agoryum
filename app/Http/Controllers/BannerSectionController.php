@@ -37,6 +37,11 @@ class BannerSectionController extends Controller
           'facebook_link' => $request->facebook_link,
           'linkedin_link' => $request->linkedin_link,
           'twitter_link' => $request->twitter_link,
+          'titleMOne' => $request->titleMOne,
+          'titleMTwo' => $request->titleMTwo,
+          'titleMThree' => $request->titleMThree,
+          'titleMFour' => $request->titleMFour,
+          'titleMFive' => $request->titleMFive,
         ]);
       }else {
         if (!empty($request->banner_image)) {
@@ -55,11 +60,34 @@ class BannerSectionController extends Controller
           'facebook_link' => $request->facebook_link,
           'linkedin_link' => $request->linkedin_link,
           'twitter_link' => $request->twitter_link,
+          'titleMOne' => $request->titleMOne,
+          'titleMTwo' => $request->titleMTwo,
+          'titleMThree' => $request->titleMThree,
+          'titleMFour' => $request->titleMFour,
+          'titleMFive' => $request->titleMFive,
         ]);
       }
 
 
 
       return back()->with('success', 'Banner Updated successfully!');
+    }
+
+    public function disable_banner()
+    {
+      DB::table('banner_sections')->where('id', 1)->update([
+        'status' => 0,
+      ]);
+
+      return back()->with('danger', 'You have disabled the banner section!');
+    }
+
+    public function enable_banner()
+    {
+      DB::table('banner_sections')->where('id', 1)->update([
+        'status' => 1,
+      ]);
+
+      return back()->with('success', 'You have enable the banner section!');
     }
 }

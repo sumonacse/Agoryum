@@ -1,9 +1,13 @@
 <!doctype html>
 <html>
     <head>
+        @php
+        $siteSettings = DB::table('sitesettings')->where('id', 1)->first();
+        @endphp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
+        <meta name="description" content="{{ $siteSettings->metadescription }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="assets/js/jquery.min.js" type="text/javascript"></script>
@@ -17,14 +21,14 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="" height="40"/></a>
+                    <a class="navbar-brand" href="{!! route('home') !!}"><img src="uploads/{{ $siteSettings->logo }}" alt="" height="40"/></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="ai-navbarSupportedContent">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-uppercase active" href="index.html">Home</a>
+                                <a class="nav-link text-uppercase active" href="{!! route('home') !!}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-uppercase" href="about.html">About us</a>
@@ -106,7 +110,7 @@
             <div class="container-fluid">
                 <div class="row bottom-footer">
                     <div class="col-sm-12 text-center pt-4 px-0">
-                        <p class="m-0 text-white py-4 ai-poppins">© 2021 Agoryum Ventures. LLC All Rights Reserved.</p>
+                        <p class="m-0 text-white py-4 ai-poppins">© 2021 {{ $siteSettings->siteName }}. LLC All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
