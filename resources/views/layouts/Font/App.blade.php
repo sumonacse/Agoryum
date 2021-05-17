@@ -72,11 +72,13 @@
                             <div class="card-body">
                                 <p class="card-text pt-3 pb-3 ai-poppins">At our core is a philosophy of service to our clients with the highest level of honesty and integrity 100%... all the time.</p>
                                 <div class="ai-banner-social-footer">
+                                  @if (!empty($banner))
                                     <ul class="list-group list-group-horizontal list-unstyled justify-content-center">
-                                        <li><a href="https://www.linkedin.com/company/agoryum-ventures/" target="_blank" class=" text-center text-light ai-social-icon"><i class="fa fa-linkedin text-light"></i></a></li>
-                                        <li><a href="https://www.facebook.com/Agoryum-Ventures-107226874202571/" target="_blank" class="text-center text-light ai-social-icon"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://twitter.com/agoryumv" target="_blank" class=" text-center text-light ai-social-icon"><i class="fa fa-twitter text-light"></i></a></li>
+                                        <li><a href="{{ $banner->linkedin_link }}" target="_blank" class=" text-center text-light ai-social-icon"><i class="fa fa-linkedin text-light"></i></a></li>
+                                        <li><a href="{{ $banner->facebook_link }}" target="_blank" class="text-center text-light ai-social-icon"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="{{ $banner->twitter_link }}" target="_blank" class=" text-center text-light ai-social-icon"><i class="fa fa-twitter text-light"></i></a></li>
                                     </ul>
+                                  @endif
                                 </div>
                             </div>
 
@@ -89,23 +91,17 @@
                     <div class="col-sm-6">
                         <h5 class="text-left text-white  text-uppercase footer-widgets ai-rajdhani-medium">Services</h5>
                         <ul class="list-group list-group-horizontal">
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="Internet-of-Things-(IoT).html">Internet-of-Things (IoT)</a></li>
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="Core-Engineering.html">Web & App Development</a></li>
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="Security.html">Security</a></li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="Experience-Design.html">Experience Design</a></li>
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="DevOps&CloudServices.html">DevOps & Cloud Services</a></li>
-                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="contact.html">Contact Us</a></li>
+                          @foreach ($Serve as $value)
+                            <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="{!! route('ServiceView',$value->id) !!}">{{ $value->service_title }}</a></li>
+                          @endforeach
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <h5 class="text-left text-white text-uppercase footer-widgets ai-rajdhani-medium">Case studies </h5>
                         <ul class="list-group list-group-horizontal">
-                            <li class="list-inline-item text-white"><a href="assets/images/Case Study Cloud Migration.pdf" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">Cloud Migration</a></li>
-                            <li class="list-inline-item"><a href="assets/images/Case Study Website Development.pdf" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">Website Development</a></li>
-                            <li class="list-inline-item"><a href="assets/images/Case Study Application Code Review.pdf" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">Code Review</a></li>
-                            <li class="list-inline-item"><a href="assets/images/Case Study Application Development.pdf" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">Application Development</a></li>
+                          @foreach ($cases as $value)
+                            <li class="list-inline-item text-white"><a href="../uploads/{{ $value->case_file }}" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">{{ $value->case_title }}</a></li>
+                          @endforeach
                         </ul>
                     </div>
                 </div>

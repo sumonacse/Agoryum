@@ -59,7 +59,8 @@
   <div class="layout-px-spacing">
 
     @include('Dashboard.alerts')
-        <div class="statbox widget box box-shadow mt-4">
+    @if (empty($info))
+        <div class="mt-4">
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
@@ -67,7 +68,53 @@
                         </div>
                     </div>
                 </div>
-                <div class="widget-content widget-content-area">
+                <div>
+                    <form class="needs-validation" action="{!! route('siteSettingsSubmit') !!}" method="post" enctype="multipart/form-data">
+                      @csrf
+                        <div class="form-row">
+                            <div class="col-md-12 mb-12">
+                                <label for="validationCustom01">Site Name</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Site name" name="siteName" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                          <div class="col-md-12 mb-12">
+                              <label for="validationCustom02">Meta description</label>
+                              <textarea type="text" name="metadescription" class="form-control" id="validationCustom02" placeholder="Meta description"required></textarea>
+                              <div class="valid-feedback">
+                                  Looks good!
+                              </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-12">
+                                <label for="validationCustom03">Logo</label>
+                                <input type="file" name="logo" class="form-control-file" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary mt-3" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+    @endif
+    @if (!empty($info))
+        <div class="mt-4">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                            <h4>Site Settings</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
                     <form class="needs-validation" action="{!! route('siteSettingsSubmit') !!}" method="post" enctype="multipart/form-data">
                       @csrf
                         <div class="form-row">
@@ -103,5 +150,6 @@
                     </form>
                 </div>
             </div>
+    @endif
   </div>
 @endsection

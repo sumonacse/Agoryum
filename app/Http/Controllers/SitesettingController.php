@@ -18,7 +18,21 @@ class SitesettingController extends Controller
 
     public function siteSettingsSubmit(Request $request)
     {
-
+      $Check = DB::table('sitesettings')->where('id', $request->id)->first();
+      if (empty($Check)) {
+      if (!empty($request->logo)) {
+        $randomNumber =rand();
+        $logo = $request->file('logo');
+        $logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+        $newLocation = 'uploads/'.$logo_rename;
+        Image::make($logo)->save($newLocation,100);
+      }
+      DB::table('sitesettings')->insert([
+        'siteName' => $request->siteName,
+        'metadescription' => $request->metadescription,
+        'logo' => $logo_rename,
+      ]);
+    }else {
       $info = DB::table('sitesettings')->where('id', 1)->first();
       @unlink('uploads/'.$info->logo);
 
@@ -34,7 +48,7 @@ class SitesettingController extends Controller
         'metadescription' => $request->metadescription,
         'logo' => $logo_rename,
       ]);
-
+    }
       return back()->with('success', 'Site settings updated!');
     }
 }

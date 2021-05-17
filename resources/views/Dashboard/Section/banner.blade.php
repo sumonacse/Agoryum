@@ -11,13 +11,6 @@
                   <div class="col-xl-6 col-md-6 col-sm-6 mt-2">
                       <h4>Banner Section</h4>
                   </div>
-                  <div class="col-md-6 mt-2">
-                    @if ($Banner->status == 0)
-                      <a href="{!! route('enable_banner') !!}" class="btn btn-danger">Disabled</a>
-                    @else
-                      <a href="{!! route('disable_banner') !!}" class="btn btn-success">Disable</a>
-                    @endif
-                  </div>
               </div>
           </div>
           <div class="widget-content widget-content-area">

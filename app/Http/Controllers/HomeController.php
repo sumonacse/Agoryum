@@ -14,6 +14,7 @@ class HomeController extends Controller
       $Serve = DB::table('services')->get();
       $client = DB::table('clients')->inRandomOrder()->limit(8)->get();
       $technologies = DB::table('technologies')->get();
-      return view('welcome', compact('banner','cases','Serve','client','technologies'));
+      $videos = DB::table('videos')->where('id', 1)->first();
+      return view('welcome', compact('banner','cases','Serve','client','technologies','videos'));
     }
 }

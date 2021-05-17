@@ -266,13 +266,13 @@
   <section class="ai-video-section ai-pt ai-pb">
       <div class="container text-center text-light pt-5 pb-5">
           <div class="row">
-              <h2 class="text-uppercase ai-video-heading ai-bold pb-4 m-0">THOUGHTS, BELIEFS AND THE FUTURE</h2>
+              <h2 class="text-uppercase ai-video-heading ai-bold pb-4 m-0">{{ $videos->video_title }}</h2>
               <div>
                   <a class="" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                       <img src="assets/images/Group 37.png" alt="video-icon"  width="100px"/>
                   </a>
               </div>
-              <p class="ai-poppins text-uppercase ai-video-content pt-4">Digital transformation: are you ready for exponential change?</p>
+              <p class="ai-poppins text-uppercase ai-video-content pt-4">{{ $videos->video_short_desc }}</p>
           </div>
       </div>
   </section>
@@ -282,21 +282,21 @@
           <div class="ai-modal-overlay-inner modal-dialog modal-fullscreen-sm-down ai-video-popup">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title ai-popup-heading ai-bold" id="exampleModalToggleLabel">THOUGHTS, BELIEFS AND THE FUTURE</h5>
+                      <h5 class="modal-title ai-popup-heading ai-bold" id="exampleModalToggleLabel">{{ $videos->video_title }}</h5>
                       <button type="button" class="ai-stop-video btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                       <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                           <div class="carousel-inner">
                               <div class="carousel-item active">
-                                  <iframe class="youtube-video" width="100%" height="600px" src="https://www.youtube.com/embed/ystdF6jN7hc?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe>
+                                  <iframe class="youtube-video" width="100%" height="600px" src="{{ $videos->video_link }}" frameborder="0" allowfullscreen></iframe>
                               </div>
                           </div>
                       </div>
                   </div>
-                  <div class="modal-footer">
+                  {{-- <div class="modal-footer">
                       <button class="ai-stop-video ai-btn btn btn-danger ai-rajdhani-medium" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Digital Skills</button>
-                  </div>
+                  </div> --}}
               </div>
           </div>
       </div>
