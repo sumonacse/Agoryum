@@ -18,6 +18,8 @@ class CreateSitesettingsTable extends Migration
             $table->string('siteName')->nullable();
             $table->string('metadescription')->nullable();
             $table->string('logo')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telephone')->nullable();
             $table->timestamps();
         });
     }

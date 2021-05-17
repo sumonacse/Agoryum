@@ -9,6 +9,8 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TechnologiesController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,9 @@ use App\Http\Controllers\VideoController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-us', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_us');
+Route::post('/contact-us-post', [ContactController::class, 'contact_us_post'])->name('contact_us_post');
 
 
 
@@ -30,6 +35,12 @@ Route::get('/site-settings', [SitesettingController::class, 'index'])->name('sit
 Route::post('/site-settings-post', [SitesettingController::class, 'siteSettingsSubmit'])->name('siteSettingsSubmit');
 // Site settings
 
+
+
+// contacts settings
+Route::get('/all-contacts', [ContactController::class, 'all_contact'])->name('all_contact');
+Route::get('/all-contacts-delete/{id}', [ContactController::class, 'contactsDelete'])->name('contactsDelete');
+// contacts settings
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -72,6 +83,14 @@ Route::post('/our-technologies-post', [TechnologiesController::class, 'techPost'
 Route::get('/video-section', [VideoController::class, 'videoIndex'])->name('videoIndex');
 Route::post('/video-section-post', [VideoController::class, 'videoPost'])->name('videoPost');
 // Video section
+
+// About us
+Route::get('/about-us-admin', [AboutusController::class, 'AbountIndex'])->name('AbountIndex');
+Route::post('/about-us-post', [AboutusController::class, 'AboutusPost'])->name('AboutusPost');
+Route::post('/about-worked-post', [AboutusController::class, 'Worked'])->name('Worked');
+Route::get('/about-worked-delete/{id}', [AboutusController::class, 'workedDelete'])->name('workedDelete');
+
+// About us
 
 
 Route::get('/logout', [FrontEndController::class, function(){

@@ -18,8 +18,8 @@ class SitesettingController extends Controller
 
     public function siteSettingsSubmit(Request $request)
     {
-      $Check = DB::table('sitesettings')->where('id', $request->id)->first();
-      if (empty($Check)) {
+      $Check = DB::table('sitesettings')->count();
+      if ($Check == 0) {
       if (!empty($request->logo)) {
         $randomNumber =rand();
         $logo = $request->file('logo');
@@ -29,6 +29,8 @@ class SitesettingController extends Controller
       }
       DB::table('sitesettings')->insert([
         'siteName' => $request->siteName,
+        'email' => $request->email,
+        'telephone' => $request->telephone,
         'metadescription' => $request->metadescription,
         'logo' => $logo_rename,
       ]);
@@ -45,6 +47,8 @@ class SitesettingController extends Controller
       }
       DB::table('sitesettings')->where('id', 1)->update([
         'siteName' => $request->siteName,
+        'email' => $request->email,
+        'telephone' => $request->telephone,
         'metadescription' => $request->metadescription,
         'logo' => $logo_rename,
       ]);

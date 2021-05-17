@@ -5,7 +5,7 @@
 @section('content')
   @include('Dashboard.alerts')
   <div id="flStackForm" class="col-lg-12 layout-spacing layout-top-spacing">
-      <div class="statbox widget box box-shadow">
+      <div class="">
           <div class="widget-header">
               <div class="row">
                   <div class="col-xl-6 col-md-6 col-sm-6 mt-2">
@@ -13,7 +13,7 @@
                   </div>
               </div>
           </div>
-          <div class="widget-content widget-content-area">
+          <div class="">
             @if (empty($Banner))
 
               <form action="{!! route('BannerSectionPost') !!}" method="post" enctype="multipart/form-data">

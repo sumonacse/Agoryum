@@ -3,7 +3,7 @@
 
 @if (!empty($banner))
 @if ($banner->status == 1)
-  <section class="ai-banner d-none d-sm-block d-sm-none d-md-block">
+  <section class="ai-banner d-none d-sm-block d-sm-none d-md-block" style="background: url('../uploads/{{ $banner->image }}')">
       <div class="container">
           <div class="row ai-row align-items-center">
               <div class="ai-banner-content">
@@ -13,7 +13,7 @@
                       <span class="ai-bold letters letters-3">{{ $banner->bannerSectionThree }} </span>
                   </h1>
                   <p class="text-light banner-text">{{ $banner->shortDesc }}</p>
-                  <a href="contact.html" class="ai-btn ai-banner-btn btn btn-danger mt-4 ai-rajdhani-medium">Get Started</a>
+                  <a href="{!! route('contact_us') !!}" class="ai-btn ai-banner-btn btn btn-danger mt-4 ai-rajdhani-medium">Get Started</a>
               </div>
               <div class="ai-banner-social">
                   <ul class="list-group list-group-horizontal list-unstyled">
@@ -50,7 +50,7 @@
                   <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFour }}</p>
                   <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFive }}</p>
                   <div class="d-flex pt-4">
-                      <a href="contact.html" class="rounded-0 ai-btn ai-mobile-btn btn btn-danger ai-rajdhani-medium">Let's Talk</a>
+                      <a href="{!! route('contact_us') !!}" class="rounded-0 ai-btn ai-mobile-btn btn btn-danger ai-rajdhani-medium">Let's Talk</a>
                   </div>
               </div>
           </div>
@@ -263,6 +263,10 @@
       </div>
   </section>
   <!--video-section -->
+  @php
+    $Video = DB::table('videos')->count();
+  @endphp
+  @if (!empty($Video))
   <section class="ai-video-section ai-pt ai-pb">
       <div class="container text-center text-light pt-5 pb-5">
           <div class="row">
@@ -325,7 +329,7 @@
   </div>
   <!--Popup End-->
   <!-- end video section-->
-
+    @endif
   <!-- arogyum next project section -->
 
   <section class="arogyum-next-project">
@@ -336,7 +340,7 @@
                   <p class="proj-desc ai-poppins">If you would like additional information from an Agoryum Business Consultant contact us.</p>
               </div>
               <div class="col-sm-6 col-md-12 col-lg-3 text-end">
-                  <a href="contact.html" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
+                  <a href="{!! route('contact_us') !!}" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
               </div>
           </div>
   </section>

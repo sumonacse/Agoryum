@@ -17,4 +17,15 @@ class HomeController extends Controller
       $videos = DB::table('videos')->where('id', 1)->first();
       return view('welcome', compact('banner','cases','Serve','client','technologies','videos'));
     }
+
+    public function aboutus()
+    {
+      $info = DB::table('aboutuses')->where('id', 1)->first();
+      return view('Home.about',compact('info'));
+    }
+
+    public function contact_us()
+    {
+      return view('Home.contact');
+    }
 }

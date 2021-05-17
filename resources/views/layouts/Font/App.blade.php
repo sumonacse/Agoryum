@@ -2,12 +2,18 @@
 <html>
     <head>
         @php
-        $siteSettings = DB::table('sitesettings')->where('id', 1)->first();
+        $site = DB::table('sitesettings')->count();
+        if (!empty($site)) {
+          $siteSettings = DB::table('sitesettings')->where('id', 1)->first();
+        }
+
         @endphp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
+        @if (!empty($site))
         <meta name="description" content="{{ $siteSettings->metadescription }}">
+      @endif
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="{!! asset('assets') !!}/js/jquery.min.js" type="text/javascript"></script>
@@ -18,10 +24,22 @@
         <link href="{!! asset('assets') !!}/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+      @php
+      $banner = DB::table('banner_sections')->where('id', 1)->first();
+      $cases = DB::table('casestudies')->get();
+      $Serve = DB::table('services')->get();
+      $client = DB::table('clients')->inRandomOrder()->limit(8)->get();
+      $technologies = DB::table('technologies')->get();
+      $videos = DB::table('videos')->where('id', 1)->first();
+
+
+      @endphp
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
+                  @if (!empty($site))
                     <a class="navbar-brand" href="{!! route('home') !!}"><img src="uploads/{{ $siteSettings->logo }}" alt="" height="40"/></a>
+                  @endif
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -31,7 +49,7 @@
                                 <a class="nav-link text-uppercase active" href="{!! route('home') !!}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="about.html">About us</a>
+                                <a class="nav-link text-uppercase" href="{!! route('aboutus') !!}">About us</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdown" role="button" aria-expanded="false">
@@ -49,11 +67,11 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="contact.html">Contact Us</a>
+                                <a class="nav-link text-uppercase" href="{!! route('contact_us') !!}">Contact Us</a>
                             </li>
                         </ul>
                         <div class="d-flex">
-                            <a href="contact.html" class="ai-btn btn btn-danger">Let's Talk</a>
+                            <a href="{!! route('contact_us') !!}" class="ai-btn btn btn-danger">Let's Talk</a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +86,9 @@
                     </div>
                     <div class="col-sm-6 text-center">
                         <div class=" card-footer mb-3 pt-5" >
+                          @if (!empty($site)) {
                             <div class="card-headers bg-transparent"><img src="../uploads/{{ $siteSettings->logo }}"></div>
+                          @endif
                             <div class="card-body">
                                 <p class="card-text pt-3 pb-3 ai-poppins">At our core is a philosophy of service to our clients with the highest level of honesty and integrity 100%... all the time.</p>
                                 <div class="ai-banner-social-footer">
@@ -109,7 +129,9 @@
             <div class="container-fluid">
                 <div class="row bottom-footer">
                     <div class="col-sm-12 text-center pt-4 px-0">
+                      @if (!empty($site)) {
                         <p class="m-0 text-white py-4 ai-poppins">© 2021 {{ $siteSettings->siteName }}. LLC All Rights Reserved.</p>
+                      @endif
                     </div>
                 </div>
             </div>

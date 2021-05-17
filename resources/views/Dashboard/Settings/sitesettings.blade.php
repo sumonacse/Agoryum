@@ -82,6 +82,26 @@
 
                         </div>
                         <div class="form-row">
+                            <div class="col-md-12 mb-12">
+                                <label for="validationCustom01">Email</label>
+                                <input type="email" class="form-control" id="validationCustom01" placeholder="Your email..." name="email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-12">
+                                <label for="validationCustom01">Phone Number</label>
+                                <input type="telephone" class="form-control" id="validationCustom01" placeholder="Your number..." name="telephone" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
                           <div class="col-md-12 mb-12">
                               <label for="validationCustom02">Meta description</label>
                               <textarea type="text" name="metadescription" class="form-control" id="validationCustom02" placeholder="Meta description"required></textarea>
@@ -121,6 +141,24 @@
                             <div class="col-md-12 mb-12">
                                 <label for="validationCustom01">Site Name</label>
                                 <input type="text" class="form-control" id="validationCustom01" placeholder="Site name" value="{{ $info->siteName }}" name="siteName" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                          </div>
+                            <div class="form-row">
+                                <div class="col-md-12 mb-12">
+                                    <label for="validationCustom01">Email</label>
+                                    <input type="email" class="form-control" id="validationCustom01" placeholder="Your email..." value="{{ $info->email }}" name="email" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="col-md-12 mb-12">
+                                <label for="validationCustom01">Phone Number</label>
+                                <input type="telephone" class="form-control" id="validationCustom01" placeholder="Your number..." value="{{ $info->telephone }}" name="telephone" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
