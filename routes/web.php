@@ -29,7 +29,7 @@ Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_
 Route::post('/contact-us-post', [ContactController::class, 'contact_us_post'])->name('contact_us_post');
 
 
-
+Route::group(['middleware' => 'auth'], function () {
 // Site settings
 Route::get('/site-settings', [SitesettingController::class, 'index'])->name('sitesettingsindex');
 Route::post('/site-settings-post', [SitesettingController::class, 'siteSettingsSubmit'])->name('siteSettingsSubmit');
@@ -89,7 +89,7 @@ Route::get('/about-us-admin', [AboutusController::class, 'AbountIndex'])->name('
 Route::post('/about-us-post', [AboutusController::class, 'AboutusPost'])->name('AboutusPost');
 Route::post('/about-worked-post', [AboutusController::class, 'Worked'])->name('Worked');
 Route::get('/about-worked-delete/{id}', [AboutusController::class, 'workedDelete'])->name('workedDelete');
-
+});
 // About us
 
 
