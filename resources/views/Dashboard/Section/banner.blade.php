@@ -39,24 +39,6 @@
                   <div class="form-group mb-3">
                       <input type="text" class="form-control" required name="twitter_link" placeholder="twitter link">
                   </div>
-                  <hr>
-                  <h4>Mobile Banner:</h4>
-                  <hr>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMOne" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMTwo" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMThree" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMFour" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMFive" placeholder="Title in mobile...">
-                  </div>
                   <div class="form-group mb-3">
                       <input type="file" class="form-control-file" required name="banner_image" placeholder="Banner image">
                   </div>
@@ -87,24 +69,7 @@
                   <div class="form-group mb-3">
                       <input type="text" class="form-control" required name="twitter_link" value="{{ $Banner->twitter_link }}" placeholder="twitter link">
                   </div>
-                  <hr>
-                  <h4>Mobile Banner:</h4>
-                  <hr>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMOne" value="{{ $Banner->titleMOne }}" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMTwo" value="{{ $Banner->titleMTwo }}" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMThree" value="{{ $Banner->titleMThree }}" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMFour" value="{{ $Banner->titleMFour}}" placeholder="Title in mobile...">
-                  </div>
-                  <div class="form-group mb-3">
-                      <input type="text" class="form-control" required name="titleMFive" value="{{ $Banner->titleMFive}}" placeholder="Title in mobile...">
-                  </div>
+                  <p>Curret Banner Image: <img src="../uploads/{{ $Banner->image }}" alt="" width="150px"> </p>
                   <div class="form-group mb-3">
                       <input type="file" class="form-control-file" required name="banner_image" value="{!! asset('uploads') !!}/{{ $Banner->image }}" placeholder="Banner image">
                   </div>

@@ -104,6 +104,7 @@
         <div id="content" class="main-content">
 
           @yield('content')
+  
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
                     {{-- <p class="">Copyright © 2021 <a target="_blank" href="{!! route('dashboard') !!}">Agoryum</a>, All rights reserved.</p> --}}

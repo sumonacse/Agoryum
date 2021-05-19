@@ -23,10 +23,18 @@ class ServiceController extends Controller
         $newLocation = 'uploads/'.$logo_rename;
         Image::make($logo)->save($newLocation,100);
       }
+      if (!empty($request->service_thumbnal)) {
+        $randomNumber =rand();
+        $logo = $request->file('service_thumbnal');
+        $thumbnal_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+        $newLocation = 'uploads/'.$thumbnal_rename;
+        Image::make($logo)->save($newLocation,100);
+      }
       DB::table('services')->insert([
         'service_title' => $request->service_title,
         'service_desc' => $request->service_desc,
         'service_banner' => $logo_rename,
+        'service_thumbnal' => $thumbnal_rename,
       ]);
 
       return back()->with('success', 'Service has been added successfuly!');

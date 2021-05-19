@@ -37,11 +37,6 @@ class BannerSectionController extends Controller
           'facebook_link' => $request->facebook_link,
           'linkedin_link' => $request->linkedin_link,
           'twitter_link' => $request->twitter_link,
-          'titleMOne' => $request->titleMOne,
-          'titleMTwo' => $request->titleMTwo,
-          'titleMThree' => $request->titleMThree,
-          'titleMFour' => $request->titleMFour,
-          'titleMFive' => $request->titleMFive,
         ]);
       }else {
         if (!empty($request->banner_image)) {
@@ -60,11 +55,6 @@ class BannerSectionController extends Controller
           'facebook_link' => $request->facebook_link,
           'linkedin_link' => $request->linkedin_link,
           'twitter_link' => $request->twitter_link,
-          'titleMOne' => $request->titleMOne,
-          'titleMTwo' => $request->titleMTwo,
-          'titleMThree' => $request->titleMThree,
-          'titleMFour' => $request->titleMFour,
-          'titleMFive' => $request->titleMFive,
         ]);
       }
 

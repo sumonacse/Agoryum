@@ -14,7 +14,7 @@
           <li class="menu">
             <a href="{!! route('sitesettingsindex') !!}" aria-expanded="false" class="dropdown-toggle">
               <div class="">
-                <span> Site Settings </span>
+                <span> Site settings </span>
               </div>
             </a>
           </li>
@@ -22,7 +22,7 @@
           <li class="menu">
             <a href="{!! route('AbountIndex') !!}" aria-expanded="false" class="dropdown-toggle">
               <div class="">
-                <span> About Us Settings </span>
+                <span> About us settings </span>
               </div>
             </a>
           </li>
@@ -44,7 +44,7 @@
                         <a href="{!! route('CasestudiesIndex') !!}">Case Studies</a>
                     </li>
                     <li>
-                        <a href="{!! route('ServiceIndex') !!}">Service Section</a>
+                        <a href="{!! route('ServiceIndex') !!}">Our Services</a>
                     </li>
                     <li>
                         <a href="{!! route('ClientIndex') !!}">Our Clients</a>
@@ -54,6 +54,9 @@
                     </li>
                     <li>
                         <a href="{!! route('videoIndex') !!}">Video Section</a>
+                    </li>
+                    <li>
+                        <a href="{!! route('footer_section') !!}">Footer Section</a>
                     </li>
                 </ul>
             </li>
@@ -71,12 +74,8 @@
                         <a href="{!! route('all_contact') !!}"> Contacts </a>
                     </li>
                 </ul>
-                <ul class="submenu list-unstyled collapse show" id="starter-kit1" data-parent="#accordionExample" style="">
-                    <li>
-                        <a href="{!! route('bannersectionsettingsindex') !!}"> Contacts us settings </a>
-                    </li>
-                </ul>
             </li>
+
 
 
         </ul>

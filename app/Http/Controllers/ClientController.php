@@ -48,4 +48,37 @@ class ClientController extends Controller
       DB::table('clients')->where('id', $request->id)->delete();
       return back()->with('danger', 'Clients review deleted!');
     }
+
+    public function clientBg(Request $request)
+    {
+      $isEmpty = DB::table('clientbgs')->count();
+      if ($isEmpty == 0) {
+        if (!empty($request->background_image)) {
+          $randomNumber =rand();
+          $logo = $request->file('background_image');
+          $rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+          $newLocation = 'uploads/'.$rename;
+          Image::make($logo)->save($newLocation,100);
+        }
+        DB::table('clientbgs')->insert([
+          'clients_background' => $rename,
+        ]);
+      }else {
+        if (!empty($request->background_image)) {
+          $randomNumber =rand();
+          $logo = $request->file('background_image');
+          $company_logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+          $newLocation = 'uploads/'.$company_logo_rename;
+          Image::make($logo)->save($newLocation,100);
+        }
+        DB::table('clientbgs')->where('id', 1)->update([
+          'clients_background' => $company_logo_rename,
+        ]);
+      }
+
+      return back()->with('success', 'Client sections background image has been updated.');
+
+    }
+
+
 }

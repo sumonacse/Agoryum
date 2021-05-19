@@ -50,7 +50,22 @@
       </form>
     </div>
   @endif
-
+<hr>
+@php
+$cover = DB::table('videobgs')->where('id', 1)->first();
+@endphp
+  <div class="col-md-12">
+    <h4>Video section's background image:</h4>
+    @if (!empty($cover))
+    <p> <img src="../uploads/{{ $cover->videos_background }}" width="150px" alt=""> </p>
+  @endif
+    <form action="{!! route('videoBg') !!}" method="post" enctype="multipart/form-data">
+      @csrf
+      <label for="">Insert a background:</label>
+      <input type="file" required class="form-control-file" name="video_background_image" accept="image/*">
+      <button type="submit" class="btn btn-primary mt-3">Save</button>
+    </form>
+  </div>
 
 
 @endsection

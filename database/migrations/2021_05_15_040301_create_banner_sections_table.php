@@ -23,12 +23,6 @@ class CreateBannerSectionsTable extends Migration
             $table->string('facebook_link');
             $table->string('linkedin_link');
             $table->string('twitter_link');
-            $table->string('titleMOne');
-            $table->string('titleMTwo');
-            $table->string('titleMThree');
-            $table->string('titleMFour');
-            $table->string('titleMFive');
-            $table->string('status')->default('0');
             $table->timestamps();
         });
     }

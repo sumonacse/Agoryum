@@ -39,4 +39,35 @@ class VideoController extends Controller
 
       return back()->with('success', 'Video section has been updated!');
     }
+
+    public function videoBg(Request $request)
+    {
+      $isEmpty = DB::table('videobgs')->count();
+      if ($isEmpty == 0) {
+        if (!empty($request->video_background_image)) {
+          $randomNumber =rand();
+          $logo = $request->file('video_background_image');
+          $rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+          $newLocation = 'uploads/'.$rename;
+          Image::make($logo)->resize(1920, 646)->save($newLocation,100);
+        }
+        DB::table('videobgs')->insert([
+          'videos_background' => $rename,
+        ]);
+      }else {
+        if (!empty($request->video_background_image)) {
+          $randomNumber =rand();
+          $logo = $request->file('video_background_image');
+          $company_logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
+          $newLocation = 'uploads/'.$company_logo_rename;
+          Image::make($logo)->resize(1920, 646)->save($newLocation,100);
+        }
+        DB::table('videobgs')->where('id', 1)->update([
+          'videos_background' => $company_logo_rename,
+        ]);
+      }
+
+      return back()->with('success', 'Video sections background image has been updated.');
+
+    }
 }

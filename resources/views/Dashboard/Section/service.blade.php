@@ -12,7 +12,7 @@
               <div class="widget-header">
                   <div class="row">
                       <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                          <h4> Serviec Description:</h4>
+                          <h4> Service Description:</h4>
                       </div>
                   </div>
               </div>
@@ -26,6 +26,9 @@
               </div>
               <label for="">Service Cover: </label>
               <input type="file" class="form-control-file" required name="service_banner">
+
+              <label for="">Service Thumbnal: </label>
+              <input type="file" class="form-control-file" required name="service_thumbnal">
               <button type="submit" class="btn btn-success mt-4 mb-5">Save</button>
             </form>
             <a href="{!! route('allServices') !!}">View All Services</a>

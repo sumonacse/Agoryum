@@ -11,6 +11,7 @@ use App\Http\Controllers\TechnologiesController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FooterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,8 +90,18 @@ Route::get('/about-us-admin', [AboutusController::class, 'AbountIndex'])->name('
 Route::post('/about-us-post', [AboutusController::class, 'AboutusPost'])->name('AboutusPost');
 Route::post('/about-worked-post', [AboutusController::class, 'Worked'])->name('Worked');
 Route::get('/about-worked-delete/{id}', [AboutusController::class, 'workedDelete'])->name('workedDelete');
-});
+
 // About us
+// Footer Section
+Route::get('/footer-section', [FooterController::class, 'footer_section'])->name('footer_section');
+// Footer Section
+
+// Background
+Route::post('/client-background', [ClientController::class, 'clientBg'])->name('clientBg');
+Route::post('/video-background', [VideoController::class, 'videoBg'])->name('videoBg');
+Route::post('/footer-background', [FooterController::class, 'footer_background_post'])->name('footer_background_post');
+// Background
+});
 
 
 Route::get('/logout', [FrontEndController::class, function(){

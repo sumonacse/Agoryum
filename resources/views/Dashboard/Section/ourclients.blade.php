@@ -29,8 +29,22 @@
         <button type="submit" class="btn btn-primary mt-3">Save</button>
     </form>
   </div>
-
-
+  <hr>
+  @php
+    $cover = DB::table('clientbgs')->where('id', 1)->first();
+  @endphp
+  <div class="col-md-12">
+    <h4> Background Image: </h4>
+    <form action="{!! route('clientBg') !!}" method="post" enctype="multipart/form-data">
+      @csrf
+      <label for="">Our client section's background:</label>
+      @if (!empty($cover))
+        <p> <img src="../uploads/{{ $cover->clients_background }}" width="150px" alt=""> </p>
+      @endif
+      <input type="file" class="form-control-file" name="background_image">
+      <button type="submit" class="btn btn-primary mt-3">Save</button>
+    </form>
+  </div>
 <hr>
 
 

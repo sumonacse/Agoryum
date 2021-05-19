@@ -2,7 +2,6 @@
 @section('content')
 
 @if (!empty($banner))
-@if ($banner->status == 1)
   <section class="ai-banner d-none d-sm-block d-sm-none d-md-block" style="background: url('../uploads/{{ $banner->image }}')">
       <div class="container">
           <div class="row ai-row align-items-center">
@@ -32,7 +31,9 @@
       </div>
   </section>
 
-
+  @php
+    $BelowBanner = DB::table('services')->limit(5)->get();
+  @endphp
 
   <!--Mobile Banner-->
   <section class="ai-home-mobile-banner d-block d-sm-block d-md-none">
@@ -44,11 +45,11 @@
                       <span class="ai-rajdhani-medium letters letters-2">{{ $banner->bannerSectionTwo }} </span>
                       <span class="ai-rajdhani-medium letters letters-3">{{ $banner->bannerSectionThree }} </span>
                   </h1>
-                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMOne }}</p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMTwo }}</p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMThree }}</p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFour }}</p>
-                  <p class="ai-rajdhani-medium m-0 pb-2">{{ $banner->titleMFive }}</p>
+                  @forelse ($BelowBanner as $value)
+                    <p class="ai-rajdhani-medium m-0 pb-2">{{ $value->service_title }}</p>
+                  @empty
+
+                  @endforelse
                   <div class="d-flex pt-4">
                       <a href="{!! route('contact_us') !!}" class="rounded-0 ai-btn ai-mobile-btn btn btn-danger ai-rajdhani-medium">Let's Talk</a>
                   </div>
@@ -58,49 +59,23 @@
   </section>
   <!--Mobile Banner End-->
 
-
   <section class="ai-icon-box d-none d-sm-block d-sm-none d-md-block">
       <div class="container-fluid text-light">
           <div class="row pt-4 pb-4">
+            @forelse ($BelowBanner as $value)
               <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
-                  <img class="me-3" src="assets/images/Group 162.png" alt="" width="40" height="40"/>
+                  <img class="me-3" src="assets/images/Group {{ 162+$loop->index }}.png" alt="" width="40" height="40"/>
                   <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Experience-Design.html" class="text-light text-decoration-none">{{ $banner->titleMOne }}</a></h3>
+                      <h3 class="m-0 ai-icon-heading"><a href="{!! route('ServiceView',$value->id) !!}" class="text-light text-decoration-none">{{ $value->service_title }}</a></h3>
                       <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Experience-Design.html" class="text-light text-decoration-none ai-poppins">Engage and include an established design team focused on improving a user centered design process. Collaborative sessions, workshops, and mentoring to achieve enhanced designs, more human user experiences and better interface experiences for your websites and platforms.</a></p>-->
                   </div>
               </div>
-              <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
-                  <img class="me-3" src="assets/images/Group 163.png" alt="" width="40" height="40"/>
-                  <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Internet-of-Things-(IoT).html" class="text-light text-decoration-none">{{ $banner->titleMTwo }}</a></h3>
-                      <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Internet-of-Things-(IoT).html" class="text-light text-decoration-none ai-poppins">Harness the power of IoT to reduce costs, drive revenue and streamline your operations. Boost efficiency and streamline capital expenditures with Agile Methods. Securely connect devices, gather data, and take intelligent actions based on increased insights and improved analytics.</a></p>-->
-                  </div>
-              </div>
-              <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
-                  <img class="me-3" src="assets/images/Group 164.png" alt="" width="40" height="40"/>
-                  <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Core-Engineering.html" class="text-light text-decoration-none">{{ $banner->titleMThree }}</a></h3>
-                      <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Core-Engineering.html" class="text-light text-decoration-none ai-poppins">Software development life cycle (SDLC) principles applied. Our development teams, building applications (iOS and Android), websites and platform integrations</a></p>-->
-                  </div>
-              </div>
-              <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
-                  <img class="me-3" src="assets/images/Group 165.png" alt="" width="40" height="40"/>
-                  <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="DevOps&CloudServices.html" class="text-light text-decoration-none">{{ $banner->titleMFour }}</a></h3>
-                      <!--<p class="m-0 ai-icon-content ai-poppins"><a href="DevOps&CloudServices.html" class="text-light text-decoration-none ai-poppins">Get more from your DevOps and cloud initiatives with end-to-end automation, speed innovation and increased digital agility. Automate your software development with our DevOps experts.</a></p>-->
-                  </div>
-              </div>
-              <div class="col col-6 col-sm-4 col-md-4 col-lg p-3 d-flex align-items-center ps-4 pe-0">
-                  <img class="me-3" src="assets/images/Group 166.png" alt="" width="40" height="40"/>
-                  <div class="d-inline-block">
-                      <h3 class="m-0 ai-icon-heading"><a href="Security.html" class="text-light text-decoration-none">{{ $banner->titleMFive }}</a></h3>
-                      <!--<p class="m-0 ai-icon-content ai-poppins"><a href="Security.html" class="text-light text-decoration-none ai-poppins">Identify, respond and resolve cyber threats quickly. Addressing Cyber & Data Security to protect your business allowing it to grow confidently. IT Support Experts, 24/7 Support Services: IT Support, Managed Services and Network Assessment.</a></p>-->
-                  </div>
-              </div>
+            @empty
+
+            @endforelse
           </div>
       </div>
   </section>
-@endif
 @endif
 
 @if (!empty($cases))
@@ -122,7 +97,7 @@
                       </div>
                       <div class="card-body ai-card-btn-body">
                           <a href="./uploads/{{$case->case_file}}" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                          <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
+                          <a href="{!! route('contact_us') !!}" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                       </div>
                   </div>
               </div>
@@ -174,11 +149,11 @@
             @forelse ($Serve as $value)
 
               <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-1 mx-3" style="background:url(../uploads/{{$value->service_banner}})">
+                  <div class="ai-card-slider ai-card-slider-bg-1 mx-3" style="background:url(../uploads/{{$value->service_thumbnal}})">
                       <div class="ai-box-height"></div>
                       <div class="card-body p-4">
                           <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>{{ $value->service_title }}</h5>
-                          <p class="card-text ai-card-text text-light ai-poppins">{{ \Illuminate\Support\Str::limit($value->service_desc, 150, $end='...') }}</p>
+                          <p class="card-text ai-card-text text-light ai-poppins">{{ \Illuminate\Support\Str::limit($value->service_desc, 80, $end='...') }}</p>
                       </div>
                       <div class="card-body ai-card-btn-body p-4">
                           <a href="{!! route('ServiceView',$value->id) !!}" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
@@ -192,10 +167,13 @@
           </div>
       </div>
   </section>
-  <section class="ai-client-section ai-pt">
+  @php
+    $client_bg = DB::table('clientbgs')->where('id', 1)->first();
+  @endphp
+  <section class="ai-client-section ai-pt" style="background: url(../uploads/{{ $client_bg->clients_background }})">
       <div class="container text-light">
           <div class="row">
-              <div class="col-sm-6 ai-client-images-section">
+              <div class="col-sm-6 ai-client-images-section" style="background: url(../uploads/{{ $client_bg->clients_background }})">
                   <h5 class="text-uppercase ai-client-sub-heading">clients</h5>
                   <h2 class="text-capitalize ai-cleint-heading ai-rajdhani-medium"><span class="ai-heading-d">Our</span> clients</h2>
                   <div class="row text-center">
@@ -206,6 +184,9 @@
                     @endforeach
                   </div>
               </div>
+              @php
+                $clients = DB::table('clients')->inRandomOrder()->first();
+              @endphp
               <div class="col-sm-6">
                   <div class="row d-flex justify-content-center">
                       <div class="col-md-10 col-lg-9 col-xl-8 testimonials-col-mb">
@@ -213,29 +194,20 @@
                               <h5 class="ai-testimonial-sub-heading ai-rajdhani-medium">OUR HAPPY CLIENTS</h5>
                               <h2 class="ai-testimonial-heading ai-bold pb-3">What Client's Say?</h2>
                               <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                                  <div class="carousel-indicators ai-carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active ai-slide-label link-light bg-light" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="ai-slide-label link-light bg-light" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="ai-slide-label link-light bg-light" aria-label="Slide 3"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" class="ai-slide-label link-light bg-light" aria-label="Slide 4"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" class="ai-slide-label link-light bg-light" aria-label="Slide 5"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" class="ai-slide-label link-light bg-light" aria-label="Slide 6"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" class="ai-slide-label link-light bg-light" aria-label="Slide 7"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" class="ai-slide-label link-light bg-light" aria-label="Slide 8"></button>
-                                  </div>
+
                                   <div class="carousel-inner">
-                                    @foreach ($client as $value)
+                                    {{-- @foreach ($client as $value) --}}
                                       <div class="carousel-item active">
                                           <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">{{ $value->client_review }}</p>
+                                              <p class="ai-testimonials-content ai-poppins-light">{{ $clients->client_review }}</p>
                                               <hr>
                                               <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="../uploads/{{ $value->clients_photo }}" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">{{ $value->client_name }}</p>
+                                                  <img class="ai-object-img" src="../uploads/{{ $clients->clients_photo }}" alt="" height="100%" width="70px"/>
+                                                  <p class="d-inline-block client-name">{{ $clients->client_name }}</p>
                                               </div>
                                           </div>
                                       </div>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                   </div>
                               </div>
                           </div>
@@ -267,7 +239,10 @@
     $Video = DB::table('videos')->count();
   @endphp
   @if (!empty($Video))
-  <section class="ai-video-section ai-pt ai-pb">
+    @php
+      $video_background = DB::table('videobgs')->where('id', 1)->first();
+    @endphp
+  <section class="ai-video-section ai-pt ai-pb" style="background: url('../uploads/{{ $video_background->videos_background }}')">
       <div class="container text-center text-light pt-5 pb-5">
           <div class="row">
               <h2 class="text-uppercase ai-video-heading ai-bold pb-4 m-0">{{ $videos->video_title }}</h2>

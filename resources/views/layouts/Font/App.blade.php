@@ -79,7 +79,10 @@
         </header>
         @yield('content')
         <!-- footer -->
-        <footer class="footer ai-pt">
+        @php
+          $footer_cover = DB::table('footers')->where('id', 1)->first();
+        @endphp
+        <footer class="footer ai-pt" style="background: url('../uploads/{{ $footer_cover->footer_background }}')">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 text-center">
