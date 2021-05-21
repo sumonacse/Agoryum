@@ -20,9 +20,9 @@ class VideoController extends Controller
       $doubleCheck = DB::table('videos')->count();
 
       if ($doubleCheck == 0 ) {
-        if ($doubleCheck >= 1) {
-          return back()->with('danger', 'You can not add more then one video');
-        }
+        // if ($doubleCheck >= 1) {
+        //   return back()->with('danger', 'You can not add more then one video');
+        // }
         DB::table('videos')->insert([
           'video_title' => $request->video_title,
           'video_short_desc' => $request->video_short_desc,

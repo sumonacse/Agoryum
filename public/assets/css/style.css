@@ -176,7 +176,7 @@ a{
 }
 /***********/
 /*
-** Heading Style 
+** Heading Style
 */
 .ai-pt {
     padding-top: 100px;
@@ -241,22 +241,27 @@ a{
 .ai-card-slider-bg-2{
     background: url(../images/services-2.jpg);
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
 }
 .ai-card-slider-bg-3{
     background: url(../images/services-3.jpg);
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
 }
 .ai-card-slider-bg-4{
     background: url(../images/services-4.jpg);
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
 }
 .ai-card-slider-bg-5{
     background: url(../images/services-5.jpg);
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
+}
+.ai-card-slider-bg-6{
+    background: url(../images/services-5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .ai-box-height{
     height: 400px
@@ -298,9 +303,10 @@ a{
 ** Client Section Style
 */
 .ai-client-section {
-    background: url(../images/Group-167.jpg); 
+    background: url(../images/Group-167.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    /* height:40rem; */
 }
 .ai-client-sub-heading {
     font-size: 22px;
@@ -405,7 +411,7 @@ a{
 **
 */
 .arogyum-next-project {
-    background: url(../images/bg.png); 
+    background: url(../images/bg.png);
 }
 .arogyum-head span {
     color: white;
@@ -616,7 +622,7 @@ section.contact-us{
     background-size: cover;
     height: 100%;
     position: relative;
-    max-height: 620px;    
+    max-height: 620px;
 }
 .ai-about-slider-bg-3{
     background: url(../images/about-slide-3.jpg);
@@ -768,7 +774,7 @@ h5.footer-widgets {
     left: 0;
     top: -60px;
     right: 0;
-    opacity: 0; 
+    opacity: 0;
     font-size:  calc(30px + (50 - 30) * ((100vw - 300px) / (1600 - 300))) !important;
     line-height: 70px;
     font-weight: 900;
@@ -1172,7 +1178,7 @@ h5.footer-widgets {
         content: url(../images/icon-right-mobile.png);
     }*/
 }
-@media (max-width: 991.98px) { 
+@media (max-width: 991.98px) {
     html{ overflow-x:hidden;}
     body{ overflow-x:hidden;}
     .navbar-dark .navbar-toggler-icon {

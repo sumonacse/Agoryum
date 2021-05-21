@@ -38,7 +38,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                   @if (!empty($site))
-                    <a class="navbar-brand" href="{!! route('home') !!}"><img src="uploads/{{ $siteSettings->logo }}" alt="" height="40"/></a>
+                    <a class="navbar-brand" href="{!! route('home') !!}"><img src="../uploads/{{ $siteSettings->logo }}" alt="" height="40"/></a>
                   @endif
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@
                                 @endphp
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   @forelse ($serve as $value)
-                                    <li><a class="dropdown-item" href="{!! route('ServiceView',$value->id) !!}">{{ $value->service_title }}</a></li>
+                                    <li><a class="dropdown-item" href="{!! route('ServiceView',$value->slug) !!}">{{ $value->service_title }}</a></li>
                                   @empty
                                     <li><a class="dropdown-item" href="Core-Engineering.html">No service</a></li>
                                   @endforelse
@@ -78,11 +78,16 @@
             </nav>
         </header>
         @yield('content')
+        <!-- arogyum next project section -->
+
+
+
+        <!--end-->
         <!-- footer -->
         @php
           $footer_cover = DB::table('footers')->where('id', 1)->first();
         @endphp
-        <footer class="footer ai-pt" style="background: url('../uploads/{{ $footer_cover->footer_background }}')">
+        <footer class="footer ai-pt" style="background: url('../uploads/{{ $footer_cover->footer_background }}');background-repeat: no-repeat; background-size: cover; padding-top: 13rem;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 text-center">
@@ -113,7 +118,7 @@
                 <div class="row footer-center">
                     <div class="col-sm-6">
                         <h5 class="text-left text-white  text-uppercase footer-widgets ai-rajdhani-medium">Services</h5>
-                        <ul class="list-group list-group-horizontal">
+                        <ul class="list-group-horizontal" style="margin-left: -31px;">
                           @foreach ($Serve as $value)
                             <li class="list-inline-item"><a class="text-white text-decoration-none ai-poppins ai-footer-link" href="{!! route('ServiceView',$value->id) !!}">{{ $value->service_title }}</a></li>
                           @endforeach
@@ -121,9 +126,9 @@
                     </div>
                     <div class="col-sm-6">
                         <h5 class="text-left text-white text-uppercase footer-widgets ai-rajdhani-medium">Case studies </h5>
-                        <ul class="list-group list-group-horizontal">
+                        <ul class="list-group-horizontal" style="margin-left: -31px;">
                           @foreach ($cases as $value)
-                            <li class="list-inline-item text-white"><a href="../uploads/{{ $value->case_file }}" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">{{ $value->case_title }}</a></li>
+                            <li class="list-inline-item"><a href="../uploads/{{ $value->case_file }}" target="_blank" class="text-white text-decoration-none ai-poppins ai-footer-link">{{ $value->case_title }}</a></li>
                           @endforeach
                         </ul>
                     </div>
@@ -133,7 +138,7 @@
                 <div class="row bottom-footer">
                     <div class="col-sm-12 text-center pt-4 px-0">
                       @if (!empty($site)) {
-                        <p class="m-0 text-white py-4 ai-poppins">© 2021 {{ $siteSettings->siteName }}. LLC All Rights Reserved.</p>
+                        <p class="m-0 text-white py-4 ai-poppins">© 2021 {{ $siteSettings->siteName }} Ventures. LLC All Rights Reserved.</p>
                       @endif
                     </div>
                 </div>

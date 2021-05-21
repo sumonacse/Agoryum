@@ -67,5 +67,16 @@
         </div>
     </div>
 </section>
-<!--About slider section end-->
+<section class="arogyum-next-project">
+    <div class="container p-5 pt-5 pb-5">
+        <div class="row">
+            <div class="col-sm-6 col-md-12 col-lg-9">
+                <h2 class="arogyum-head ai-bold"> <span class="ai-bold">ABOUT YOUR </span> NEXT PROJECT.</h2>
+                <p class="proj-desc ai-poppins">If you would like additional information from an Agoryum Business Consultant contact us.</p>
+            </div>
+            <div class="col-sm-6 col-md-12 col-lg-3 text-end">
+                <a href="{!! route('contact_us') !!}" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
+            </div>
+        </div>
+</section>
 @endsection

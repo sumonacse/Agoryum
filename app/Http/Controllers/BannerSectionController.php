@@ -26,7 +26,7 @@ class BannerSectionController extends Controller
           $logo = $request->file('banner_image');
           $logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
           $newLocation = 'uploads/'.$logo_rename;
-          Image::make($logo)->save($newLocation,100);
+          Image::make($logo)->resize(1920, 1080)->save($newLocation,100);
         }
         DB::table('banner_sections')->insert([
           'bannerSectionOne' => $request->bannerTitleOne,
@@ -44,7 +44,7 @@ class BannerSectionController extends Controller
           $logo = $request->file('banner_image');
           $logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
           $newLocation = 'uploads/'.$logo_rename;
-          Image::make($logo)->save($newLocation,100);
+          Image::make($logo)->resize(1920, 1080)->save($newLocation,100);
         }
         DB::table('banner_sections')->where('id', 1)->update([
           'bannerSectionOne' => $request->bannerTitleOne,

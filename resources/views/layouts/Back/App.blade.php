@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('Backend') !!}/plugins/table/datatable/datatables.css">
     <link rel="stylesheet" type="text/css" href="{!! asset('Backend') !!}/plugins/table/datatable/dt-global_style.css">
     <link rel="stylesheet" href="{!! asset('Backend') !!}/plugins/editors/markdown/simplemde.min.css">
+    <link href="{!! asset('Backend') !!}/assets/css/components/cards/card.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -104,7 +105,7 @@
         <div id="content" class="main-content">
 
           @yield('content')
-  
+
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
                     {{-- <p class="">Copyright © 2021 <a target="_blank" href="{!! route('dashboard') !!}">Agoryum</a>, All rights reserved.</p> --}}

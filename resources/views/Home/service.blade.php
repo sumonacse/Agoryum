@@ -3,6 +3,9 @@
    {{ $Service->service_title }}
 @endsection
 @section('content')
+  @php
+    $siteSet = DB::table('sitesettings')->where('id', 1)->first();
+  @endphp
   <!-- Service banner section -->
   <section class="services-banner-inner">
       <div class="container h-100">
@@ -74,7 +77,7 @@
                       <h3 class="service-sidebar-heading rajdhani-semibold p-2 text-light">NEED HELP?</h3>
                       <p class="text-light p-2 ai-poppins ai-need-help-para m-0">At the core of our services is the goal to listen, learn, collaborate, plan, advise and then to provide the right set of technology tools available which make business better.</p>
                       <div class="p-2">
-                          <img class="ai-phone-img" src="assets/images/phone.png" alt=""/><a href="tel:8882881214" class="ai-phone-link text-light rajdhani-semibold ps-3 text-decoration-none">(888) 288.1214</a>
+                          <img class="ai-phone-img" src="../assets/images/phone.png" alt=""/><a href="tel:{{ $siteSet->telephone }}" class="ai-phone-link text-light rajdhani-semibold ps-3 text-decoration-none">{{ $siteSet->telephone }}</a>
                       </div>
                   </div>
               </div>
@@ -91,7 +94,7 @@
                   <p class="proj-desc ai-poppins">If you would like additional information from an Agoryum Business Consultant contact us.</p>
               </div>
               <div class="col-sm-6 col-md-12 col-lg-3 text-end">
-                  <a href="contact.html" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
+                  <a href="{!! route('contact_us') !!}" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
               </div>
           </div>
       </div>

@@ -58,7 +58,7 @@ class ClientController extends Controller
           $logo = $request->file('background_image');
           $rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
           $newLocation = 'uploads/'.$rename;
-          Image::make($logo)->save($newLocation,100);
+          Image::make($logo)->resize(1920, 615)->save($newLocation,100);
         }
         DB::table('clientbgs')->insert([
           'clients_background' => $rename,
@@ -69,7 +69,7 @@ class ClientController extends Controller
           $logo = $request->file('background_image');
           $company_logo_rename = $randomNumber.'.'.$logo->getClientOriginalExtension();
           $newLocation = 'uploads/'.$company_logo_rename;
-          Image::make($logo)->save($newLocation,100);
+          Image::make($logo)->resize(1920, 700)->save($newLocation,100);
         }
         DB::table('clientbgs')->where('id', 1)->update([
           'clients_background' => $company_logo_rename,

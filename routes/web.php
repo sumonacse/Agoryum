@@ -12,6 +12,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_us');
 Route::post('/contact-us-post', [ContactController::class, 'contact_us_post'])->name('contact_us_post');
-
+Route::get('/services/{slug}', [ServiceController::class, 'ServiceView'])->name('ServiceView');
 
 Route::group(['middleware' => 'auth'], function () {
 // Site settings
@@ -64,7 +65,7 @@ Route::get('/case-studies-delete/{id}', [CasestudiesController::class, 'deleteCa
 Route::get('/our-Services', [ServiceController::class, 'index'])->name('ServiceIndex');
 Route::get('/our-Services-all', [ServiceController::class, 'allServices'])->name('allServices');
 Route::get('/our-Services-delete/{id}', [ServiceController::class, 'ServiceDelete'])->name('ServiceDelete');
-Route::get('/our-Services-view/{id}', [ServiceController::class, 'ServiceView'])->name('ServiceView');
+
 Route::post('/our-Services-post', [ServiceController::class, 'ServicePost'])->name('ServicePost');
 // Services Section
 
@@ -101,6 +102,14 @@ Route::post('/client-background', [ClientController::class, 'clientBg'])->name('
 Route::post('/video-background', [VideoController::class, 'videoBg'])->name('videoBg');
 Route::post('/footer-background', [FooterController::class, 'footer_background_post'])->name('footer_background_post');
 // Background
+
+// Blog create
+Route::get('/create-blog', [BlogController::class, 'indexBlog'])->name('indexBlog');
+Route::get('/blog/{id}', [BlogController::class, 'blogview'])->name('blogview');
+Route::get('/blog-delete/{id}', [BlogController::class, 'blogdelete'])->name('blogdelete');
+Route::post('/create-blog-post', [BlogController::class, 'indexBlogPost'])->name('indexBlogPost');
+Route::post('/create-blog-update', [BlogController::class, 'BlogUpdate'])->name('BlogUpdate');
+// Blog create
 });
 
 

@@ -126,7 +126,7 @@
                           </div>
                           <div class="card-body ai-card-btn-body">
                               <a href="./uploads/{{$case->case_file}}" target="_blank" class="ai-btn ai-card-btn btn btn-danger card-link text-uppercase">READ MORE</a>
-                              <a href="contact.html" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
+                              <a href="{!! route('contact_us') !!}" class="ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                           </div>
                       </div>
                   </div>
@@ -147,16 +147,15 @@
           </div>
           <div class="row ai-slick">
             @forelse ($Serve as $value)
-
               <div class="col-sm-4 ai-slick-slide">
-                  <div class="ai-card-slider ai-card-slider-bg-1 mx-3" style="background:url(../uploads/{{$value->service_thumbnal}})">
+                  <div class="ai-card-slider mx-3" style="background:url(../uploads/{{$value->service_thumbnal}}); background-repeat:no-repeat; background-size:cover;">
                       <div class="ai-box-height"></div>
                       <div class="card-body p-4">
                           <h5 class="card-title ai-card-title text-light ai-slick-heading ai-rajdhani-medium"><br>{{ $value->service_title }}</h5>
                           <p class="card-text ai-card-text text-light ai-poppins">{{ \Illuminate\Support\Str::limit($value->service_desc, 80, $end='...') }}</p>
                       </div>
                       <div class="card-body ai-card-btn-body p-4">
-                          <a href="{!! route('ServiceView',$value->id) !!}" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
+                          <a href="{!! route('ServiceView',$value->slug) !!}" class="ai-slick-btn ai-btn ai-card-btn btn btn-danger card-link text-uppercase">LEARN MORE</a>
                           <a href="contact.html" class="ai-slick-btn ai-btn ai-card-btn btn btn-secondary card-link text-uppercase">CONTACT US</a>
                       </div>
                   </div>
@@ -170,10 +169,10 @@
   @php
     $client_bg = DB::table('clientbgs')->where('id', 1)->first();
   @endphp
-  <section class="ai-client-section ai-pt" style="background: url(../uploads/{{ $client_bg->clients_background }})">
+  <section class="ai-client-section ai-pt" style="background: url(../uploads/{{ $client_bg->clients_background }});">
       <div class="container text-light">
           <div class="row">
-              <div class="col-sm-6 ai-client-images-section" style="background: url(../uploads/{{ $client_bg->clients_background }})">
+              <div class="col-sm-6 ai-client-images-section">
                   <h5 class="text-uppercase ai-client-sub-heading">clients</h5>
                   <h2 class="text-capitalize ai-cleint-heading ai-rajdhani-medium"><span class="ai-heading-d">Our</span> clients</h2>
                   <div class="row text-center">
@@ -185,35 +184,41 @@
                   </div>
               </div>
               @php
-                $clients = DB::table('clients')->inRandomOrder()->first();
+                $clients = DB::table('clients')->limit(8)->latest('id')->get();
               @endphp
-              <div class="col-sm-6">
-                  <div class="row d-flex justify-content-center">
-                      <div class="col-md-10 col-lg-9 col-xl-8 testimonials-col-mb">
-                          <div class="ai-client-testimonials-card card card-main border-0">
-                              <h5 class="ai-testimonial-sub-heading ai-rajdhani-medium">OUR HAPPY CLIENTS</h5>
-                              <h2 class="ai-testimonial-heading ai-bold pb-3">What Client's Say?</h2>
-                              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="col-sm-6">
+             <div class="row d-flex justify-content-center">
+                 <div class="col-md-10 col-lg-9 col-xl-8 testimonials-col-mb">
+                     <div class="ai-client-testimonials-card card card-main border-0">
+                         <h5 class="ai-testimonial-sub-heading ai-rajdhani-medium">OUR HAPPY CLIENTS</h5>
+                         <h2 class="ai-testimonial-heading ai-bold pb-3">What Client's Say?</h2>
+                         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                             <div class="carousel-indicators ai-carousel-indicators">
+                               @forelse ($clients as $key => $value)
+                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ $loop->index }}" class="@if($key > 6)active @endif ai-slide-label link-light bg-light" aria-label="Slide {{ $loop->index+1 }}"></button>
+                               @endforeach
+                             </div>
+                             <div class="carousel-inner">
+                               @forelse ($clients as $key => $value)
+                                 <div class="carousel-item @if($key > 6)active @endif">
+                                   <div class="card border-0 card-0">
+                                     <p class="ai-testimonials-content ai-poppins-light">{{ $value->client_review }}</p>
+                                     <hr>
+                                     <div class="d-inline-block pt-3">
+                                       <img class="ai-object-img" src="../uploads/{{ $value->clients_photo }}" alt="" height="100%" width="70px"/>
+                                       <p class="d-inline-block client-name">{{ $value->client_name}}</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                               @empty
 
-                                  <div class="carousel-inner">
-                                    {{-- @foreach ($client as $value) --}}
-                                      <div class="carousel-item active">
-                                          <div class="card border-0 card-0">
-                                              <p class="ai-testimonials-content ai-poppins-light">{{ $clients->client_review }}</p>
-                                              <hr>
-                                              <div class="d-inline-block pt-3">
-                                                  <img class="ai-object-img" src="../uploads/{{ $clients->clients_photo }}" alt="" height="100%" width="70px"/>
-                                                  <p class="d-inline-block client-name">{{ $clients->client_name }}</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                    {{-- @endforeach --}}
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                               @endforelse
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
           </div>
       </div>
   </section>
@@ -305,21 +310,17 @@
   <!--Popup End-->
   <!-- end video section-->
     @endif
-  <!-- arogyum next project section -->
-
-  <section class="arogyum-next-project">
-      <div class="container p-5 pt-5 pb-5">
-          <div class="row">
-              <div class="col-sm-6 col-md-12 col-lg-9">
-                  <h2 class="arogyum-head ai-bold"> <span class="ai-bold">ABOUT YOUR </span> NEXT PROJECT.</h2>
-                  <p class="proj-desc ai-poppins">If you would like additional information from an Agoryum Business Consultant contact us.</p>
-              </div>
-              <div class="col-sm-6 col-md-12 col-lg-3 text-end">
-                  <a href="{!! route('contact_us') !!}" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
-              </div>
-          </div>
-  </section>
-
-  <!--end-->
+    <section class="arogyum-next-project">
+        <div class="container p-5 pt-5 pb-5">
+            <div class="row">
+                <div class="col-sm-6 col-md-12 col-lg-9">
+                    <h2 class="arogyum-head ai-bold"> <span class="ai-bold">ABOUT YOUR </span> NEXT PROJECT.</h2>
+                    <p class="proj-desc ai-poppins">If you would like additional information from an Agoryum Business Consultant contact us.</p>
+                </div>
+                <div class="col-sm-6 col-md-12 col-lg-3 text-end">
+                    <a href="{!! route('contact_us') !!}" class="arogyum-ai-btn ai-btn btn btn-danger my-3 ai-rajdhani-medium">Let's Talk</a>
+                </div>
+            </div>
+    </section>
 
 @endsection
